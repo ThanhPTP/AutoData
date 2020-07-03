@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "nkYVJO4ZYEoBppvF8yxDMNpUJ8u0R48lu42LpoGD0wT45Bm8g26k9SYfEkSw4hZ0G+xqJzWizbstAWZQ0Bc5SQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\ThanhPTP\\AutoData\\src\\AutoData\\AutoData.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\e102700\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\e102700\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
