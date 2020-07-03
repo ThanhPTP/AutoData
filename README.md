@@ -1,2 +1,1 @@
-# AutoData
-.Net project helps auto fill data to object
+# AutoData - Auto fill data to object in .Net Core 
