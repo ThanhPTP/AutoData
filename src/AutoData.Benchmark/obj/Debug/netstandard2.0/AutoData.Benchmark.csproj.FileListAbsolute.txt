@@ -1,0 +1,9 @@
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\bin\Debug\netstandard2.0\AutoData.Benchmark.deps.json
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\bin\Debug\netstandard2.0\AutoData.Benchmark.dll
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\bin\Debug\netstandard2.0\AutoData.Benchmark.pdb
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.AssemblyInfoInputs.cache
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.AssemblyInfo.cs
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.csproj.CoreCompileInputs.cache
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.dll
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.pdb
+D:\Projects\ThanhPTP\AutoData\src\AutoData.Benchmark\obj\Debug\netstandard2.0\AutoData.Benchmark.csprojAssemblyReference.cache
