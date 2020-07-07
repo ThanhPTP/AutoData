@@ -1,9 +1,0 @@
-D:\Projects\ThanhPTP\AutoData\src\AutoData\bin\Debug\netstandard2.0\AutoData.deps.json
-D:\Projects\ThanhPTP\AutoData\src\AutoData\bin\Debug\netstandard2.0\AutoData.dll
-D:\Projects\ThanhPTP\AutoData\src\AutoData\bin\Debug\netstandard2.0\AutoData.pdb
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.csprojAssemblyReference.cache
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.AssemblyInfoInputs.cache
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.AssemblyInfo.cs
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.csproj.CoreCompileInputs.cache
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.dll
-D:\Projects\ThanhPTP\AutoData\src\AutoData\obj\Debug\netstandard2.0\AutoData.pdb

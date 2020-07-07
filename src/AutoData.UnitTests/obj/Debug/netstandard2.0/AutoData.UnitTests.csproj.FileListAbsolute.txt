@@ -1,9 +1,0 @@
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\bin\Debug\netstandard2.0\AutoData.UnitTests.deps.json
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\bin\Debug\netstandard2.0\AutoData.UnitTests.dll
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\bin\Debug\netstandard2.0\AutoData.UnitTests.pdb
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.csprojAssemblyReference.cache
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.AssemblyInfoInputs.cache
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.AssemblyInfo.cs
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.dll
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.pdb
-D:\Projects\ThanhPTP\AutoData\src\AutoData.UnitTests\obj\Debug\netstandard2.0\AutoData.UnitTests.csproj.CoreCompileInputs.cache
