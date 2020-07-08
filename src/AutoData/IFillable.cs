@@ -1,7 +1,7 @@
 ﻿namespace AutoData
 {
-    public interface IFillable
+    public interface IFillable: ISeparatable
     {
-        void SetValue(object desc, Block value);
+        void SetValueToProp(object desc, Block value);
     }
 }

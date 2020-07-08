@@ -1,36 +1,30 @@
 ﻿namespace AutoData
 {
-    public class Fillable : IFillable
-    {
-        private readonly IRandomize _random;
-        public Fillable(IRandomize random)
-        {
-            _random = random;
-        }
-
-        public void SetValue(object desc, Block value) => desc
+    public class Fillable : Separatable, IFillable
+    {   
+        public void SetValueToProp(object desc, Block value) => desc
                                                             .GetType()
                                                             .GetProperty(value.Name)
-                                                            .SetValue(desc, DeserializeDataValue(value));
+                                                            .SetValue(desc, DeserializeDataValueRandom(value));
 
-        private object DeserializeDataValue(Block block) => block.DataType switch
+        private object DeserializeDataValueRandom(Block block) => block.DataType switch
         {
-            DataType.Boolean => _random.GetBoolean(),
-            DataType.Char => _random.GetChar(),
-            DataType.DateTime => _random.GetDateTime(),
-            DataType.DateTimeOffset => _random.GetDateTimeOffset(),
-            DataType.Double => _random.GetDouble(),
-            DataType.Integer => _random.GetInt(int.MinValue, int.MaxValue),
-            DataType.String => $"{block.Name} {_random.GetString()}",
-            DataType.Byte => _random.GetInt(byte.MinValue, byte.MaxValue),
-            DataType.Long => _random.GetInt(),
-            DataType.Float => _random.GetDouble(),
-            DataType.SByte => _random.GetInt(sbyte.MinValue, sbyte.MaxValue),
-            DataType.UShort => _random.GetInt(ushort.MinValue, ushort.MaxValue),
-            DataType.Short => _random.GetInt(short.MinValue, short.MaxValue),
-            DataType.ULong => _random.GetInt(0, (int.MaxValue / 2) - 1),
-            DataType.UInt => _random.GetInt(0, (int.MaxValue / 2) - 1),
-            DataType.Decimal => _random.GetDouble(),
+            DataType.Boolean => RandomizeUtils.GetBoolean(),
+            DataType.Char => RandomizeUtils.GetChar(),
+            DataType.DateTime => RandomizeUtils.GetDateTime(),
+            DataType.DateTimeOffset => RandomizeUtils.GetDateTimeOffset(),
+            DataType.Double => RandomizeUtils.GetDouble(),
+            DataType.Integer => RandomizeUtils.GetInt(int.MinValue, int.MaxValue),
+            DataType.String => $"{block.Name} {RandomizeUtils.GetString()}",
+            DataType.Byte => RandomizeUtils.GetInt(byte.MinValue, byte.MaxValue),
+            DataType.Long => RandomizeUtils.GetInt(),
+            DataType.Float => RandomizeUtils.GetDouble(),
+            DataType.SByte => RandomizeUtils.GetInt(sbyte.MinValue, sbyte.MaxValue),
+            DataType.UShort => RandomizeUtils.GetInt(ushort.MinValue, ushort.MaxValue),
+            DataType.Short => RandomizeUtils.GetInt(short.MinValue, short.MaxValue),
+            DataType.ULong => RandomizeUtils.GetInt(0, (int.MaxValue / 2) - 1),
+            DataType.UInt => RandomizeUtils.GetInt(0, (int.MaxValue / 2) - 1),
+            DataType.Decimal => RandomizeUtils.GetDouble(),
             DataType.Class => null,
             DataType.Object => null,
             _ => null

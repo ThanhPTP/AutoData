@@ -7,12 +7,7 @@ namespace AutoData
 {
     public class Separatable : ISeparatable
     {
-        private List<Block> _blocks;
-
-        public Separatable()
-        {
-            _blocks = new List<Block>();
-        }
+        private List<Block> _blocks = new List<Block>();
 
         #region Public 
 
@@ -23,6 +18,7 @@ namespace AutoData
         public Type ConvertDataType(DataType dataType) => DeserializeDataType(dataType);
 
         public PropertyInfo GetPropertyInfo(object data, string prop) => data.GetType().GetProperty(prop);
+
         #endregion
 
         #region Private
@@ -45,8 +41,12 @@ namespace AutoData
             DataType.ULong => typeof(ulong),
             DataType.UInt => typeof(uint),
             DataType.Decimal => typeof(decimal),
-            _ => throw new NotImplementedException()
+            DataType.Object => typeof(object),
+            DataType.Class => typeof(object),
+            _ => typeof(object)
         };
+
+        private Type DeserializeDataType<T>(DataType type) => typeof(T);
 
         private List<Block> GetAllProps(object data)
         {
@@ -61,9 +61,9 @@ namespace AutoData
                 .ToList();
         }
 
-        private object GetDataFromProp(object source, string prop) => GetPropertyInfo(source, prop).GetValue(source);
+        private  object GetDataFromProp(object source, string prop) => GetPropertyInfo(source, prop).GetValue(source);
 
-        private DataType SerializeDataType(Type type)
+        private static DataType SerializeDataType(Type type)
         {
             if (type == typeof(bool))
             {

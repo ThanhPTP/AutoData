@@ -19,9 +19,6 @@ namespace AutoData.ConsoleApp
             services.AddSingleton<StartUp>();
 
             services.AddScoped<IAutoData, AutoData>();
-            services.AddScoped<IFillable, Fillable>();
-            services.AddScoped<ISeparatable, Separatable>();
-            services.AddSingleton<IRandomize, Randomize>();
 
             return services;
         }

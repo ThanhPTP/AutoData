@@ -3,17 +3,9 @@ using System.Collections.Generic;
 
 namespace AutoData
 {
-    public class AutoData : IAutoData
+    public class AutoData: Fillable, IAutoData
     {
-        private TreeBlock _tree;
-        private readonly ISeparatable _separatable;
-        private readonly IFillable _fillable;
-        public AutoData(ISeparatable separatable, IFillable fillable)
-        {
-            _separatable = separatable;
-            _fillable = fillable;
-            _tree = new TreeBlock(_separatable, _fillable);
-        }
+        private static readonly TreeBlock _tree = new TreeBlock();
 
         public IEnumerable<T> Create<T>(int number)
         {
@@ -29,7 +21,24 @@ namespace AutoData
 
         public void Fill(object data)
         {
-            _tree.Fill(data);
+            Map(data);
+
+            foreach (var block in _tree.Blocks)
+            {
+                if (block.DataType == DataType.Class)
+                {
+                    var subProp = GetPropertyInfo(data, block.Name);
+                    var subData = Activator.CreateInstance(subProp.PropertyType);
+
+                    Fill(subData);
+
+                    subProp.SetValue(data, subData);
+                }
+                else
+                {
+                    SetValueToProp(data, block);
+                }
+            }
         }
 
         public T Fill<T>()
@@ -38,5 +47,7 @@ namespace AutoData
             Fill(data);
             return (T)data;
         }
+
+        private void Map(object data) => _tree.Map(GetAllDataTypes(data));
     }
 }

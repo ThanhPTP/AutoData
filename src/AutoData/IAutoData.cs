@@ -2,7 +2,7 @@
 
 namespace AutoData
 {
-    public interface IAutoData
+    public interface IAutoData: IFillable
     {
         void Fill(object data);
         IEnumerable<T> Create<T>(int number);

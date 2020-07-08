@@ -43,7 +43,7 @@ namespace AutoData.ConsoleApp
             Stopwatch stopwatch = new Stopwatch();
 
             stopwatch.Start();
-            var data = _autoData.Create<Student>(10000);
+            var data = _autoData.Create<Student>(100000);
             stopwatch.Stop();
 
             Console.WriteLine(stopwatch.Elapsed);
