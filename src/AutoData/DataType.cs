@@ -18,6 +18,7 @@
         UShort = 14,
         UInt = 15,
         ULong = 16,
-        Decimal = 17
+        Decimal = 17,
+        Object = 18
     }
 }

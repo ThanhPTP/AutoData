@@ -1,56 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace AutoData
 {
-    public abstract class Separatable : ISeparatable, IDisposable
+    public class Separatable : ISeparatable
     {
         private List<Block> _blocks;
 
-        protected Separatable()
+        public Separatable()
         {
             _blocks = new List<Block>();
         }
 
-        #region Public
-
-        public void Dispose()
-        {
-            _blocks.Clear();
-        }
-
-        ~Separatable()
-        {
-            _blocks.Clear();
-        }
-
-        #endregion
-
-        #region Protected 
+        #region Public 
 
         public List<Block> GetAllDataTypes<T>() => GetAllDataTypes(default(T));
 
         public List<Block> GetAllDataTypes(object data) => _blocks = GetAllProps(data);
 
+        public Type ConvertDataType(DataType dataType) => DeserializeDataType(dataType);
+
+        public PropertyInfo GetPropertyInfo(object data, string prop) => data.GetType().GetProperty(prop);
         #endregion
 
         #region Private
-
-        private List<Block> GetAllProps(object data)
-        {
-            return data.GetType()
-                .GetProperties()
-                .Select(s => new Block
-                {
-                    DataType = SerializeDataType(s.PropertyType),
-                    Name = s.Name,
-                    Value = GetDataFromProp(s.Name, data)
-                })
-                .ToList();
-        }
-
-        private object GetDataFromProp(string prop, object source) => source.GetType().GetProperty(prop).GetValue(source);
 
         private Type DeserializeDataType(DataType type) => type switch
         {
@@ -72,6 +47,21 @@ namespace AutoData
             DataType.Decimal => typeof(decimal),
             _ => throw new NotImplementedException()
         };
+
+        private List<Block> GetAllProps(object data)
+        {
+            return data.GetType()
+                .GetProperties()
+                .Select(s => new Block
+                {
+                    DataType = SerializeDataType(s.PropertyType),
+                    Name = s.Name,
+                    Value = GetDataFromProp(data, s.Name)
+                })
+                .ToList();
+        }
+
+        private object GetDataFromProp(object source, string prop) => GetPropertyInfo(source, prop).GetValue(source);
 
         private DataType SerializeDataType(Type type)
         {
@@ -141,7 +131,7 @@ namespace AutoData
             }
             else
             {
-                throw new NotImplementedException();
+                return type.IsClass ? DataType.Class : DataType.Object;
             }
         }
 

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace AutoData.ConsoleApp
 {
     internal class StartUp
     {
+        #region DTO    
+
         public class Address
         {
             public string District { get; set; }
@@ -27,55 +30,23 @@ namespace AutoData.ConsoleApp
             public Address Address { get; set; }
         }
 
+        #endregion
+
+        private readonly IAutoData _autoData;
+        public StartUp(IAutoData autoData)
+        {
+            _autoData = autoData;
+        }
+
         internal void Run()
         {
-            Student student = new Student();
+            Stopwatch stopwatch = new Stopwatch();
 
-            foreach (PropertyInfo prop in student.GetType().GetProperties())
-            {
-                if (prop.PropertyType.IsPrimitive || prop.PropertyType == typeof(string))
-                {
-                    if (prop.PropertyType == typeof(string))
-                    {
-                        prop.SetValue(student, $"{prop.Name} Test");
-                    }
-                    if (prop.PropertyType == typeof(int))
-                    {
-                        prop.SetValue(student, 0);
-                    }
-                    if (prop.PropertyType == typeof(bool))
-                    {
-                        prop.SetValue(student, true);
-                    }
-                    if (prop.PropertyType == typeof(char))
-                    {
-                        prop.SetValue(student, 'A');
-                    }
-                    if (prop.PropertyType == typeof(double))
-                    {
-                        prop.SetValue(student, 0.0);
-                    }
-                    if (prop.PropertyType == typeof(DateTime))
-                    {
-                        prop.SetValue(student, DateTime.Now);
-                    }
-                    if (prop.PropertyType == typeof(DateTimeOffset))
-                    {
-                        prop.SetValue(student, DateTimeOffset.Now);
-                    }
-                }
-                else
-                {
-                    if (prop.PropertyType.IsClass)
-                    {
-                        if (prop.GetValue(student) == null)
-                        {
-                            object instance = Activator.CreateInstance(prop.PropertyType);
-                            prop.SetValue(student, instance);
-                        }
-                    }
-                }
-            }
+            stopwatch.Start();
+            var data = _autoData.Create<Student>(10000);
+            stopwatch.Stop();
+
+            Console.WriteLine(stopwatch.Elapsed);
 
             Console.Read();
         }
