@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.dtbcache.v2
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -255,6 +256,9 @@ paket-files/
 
 # CodeRush
 .cr/
+
+# Visual git
+.vs/
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
