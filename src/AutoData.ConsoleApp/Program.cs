@@ -18,8 +18,6 @@ namespace AutoData.ConsoleApp
         {
             services.AddSingleton<StartUp>();
 
-            services.AddScoped<IAutoData, AutoData>();
-
             return services;
         }
     }
